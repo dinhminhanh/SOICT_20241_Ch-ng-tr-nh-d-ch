@@ -1,0 +1,18 @@
+PROGRAM MyProgram;
+CONST
+  x = 10;
+  y = 'a';
+BEGIN
+  // Không thể gán lại giá trị cho hằng số
+  // x = 5;   // Lỗi
+  // y = 'b';  // Lỗi
+
+  CALL MyFunction;
+  IF x = 10 THEN
+    // Không thể gán lại giá trị cho hằng số
+    // y = 'b';  // Lỗi
+  END;
+  WHILE x < 10 DO
+    x = x + 1;
+  END; 
+END.
