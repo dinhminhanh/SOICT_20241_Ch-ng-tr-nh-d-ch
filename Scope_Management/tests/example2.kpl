@@ -1,0 +1,17 @@
+PROGRAM Example2; (* Factorial *)
+
+  Var n : Integer;
+
+  Function F(n : Integer) : Integer;
+    BEGIN
+      If n = 0 Then F := 1 Else F := n * F(n - 1);
+    End;
+
+  BEGIN
+    For n := 1 To 7 Do
+      Begin
+        Call WriteLn;
+        Call WriteI(F(n));
+      End;
+  END.
+END. (* Factorial *)
