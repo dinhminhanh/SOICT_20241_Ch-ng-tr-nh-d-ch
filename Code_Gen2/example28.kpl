@@ -1,0 +1,19 @@
+Program Example28; (* Matrix *)
+Var n : Integer;
+    m : integer;
+    a : array(. 10 .) of array (. 10 .) of integer;
+    i : integer;
+    j : integer;
+    s : integer;
+Begin
+    m := READI;
+    n := READI;
+    for i:=0 to m - 1 do
+      for j := 0 to n - 1 do
+          a(.i.)(.j.):= READI;
+    s := 0;
+    for i:=0 to m - 1 do
+      for j := 0 to n - 1 do
+          s := s + a(.i.)(.j.);
+    call WRITEI(s);
+End. (* Matrix *)

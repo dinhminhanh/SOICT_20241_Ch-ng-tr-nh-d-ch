@@ -22,11 +22,9 @@ int readChar(void) {
 }
 
 int openInputStream(char *fileName) {
-  inputStream = fopen("./test/example1.kpl", "rt");
-  if (inputStream == NULL) {
+  inputStream = fopen(fileName, "rt");
+  if (inputStream == NULL)
     return IO_ERROR;
-  } 
-
   lineNo = 1;
   colNo = 0;
   readChar();

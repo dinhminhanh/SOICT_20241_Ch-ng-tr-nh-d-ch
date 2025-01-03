@@ -1,0 +1,14 @@
+PROGRAM  CODEGEN10;  
+VAR  
+	I : INTEGER;
+     PROD : INTEGER;
+BEGIN
+  PROD := 1;
+  I := 1;
+  WHILE I <= 100 DO
+     BEGIN
+       PROD := PROD * I;
+       I := I + 1;
+     END;
+END.
+

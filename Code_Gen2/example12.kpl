@@ -1,0 +1,24 @@
+program A;(*example 12*)
+	var a1: integer;
+	procedure G(var p11: integer; p12: integer);
+		var a11: integer;
+		function H(var p21: integer; p22: integer): integer;
+			var a31: char;
+			begin
+				if p22 <= 1 then
+					H:=p21
+				else
+					H:=H(p21, p22 - 1);
+			end;
+		begin
+			a11:= H(p11, p12);
+		end;		
+		
+	procedure I;
+		begin
+			a1:=3;
+			call G(a1, 5);
+		end;
+	begin
+		call I;
+	end.	

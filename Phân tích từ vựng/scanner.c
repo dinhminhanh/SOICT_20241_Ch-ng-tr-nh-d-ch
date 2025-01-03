@@ -220,10 +220,20 @@ Token *getToken(void)
         readChar();
         state = 0;
         return makeToken(SB_TIMES, lineNo, colNo - 1);
-    case 12:
-        readChar();
-        state = 0;
+    // Thay đổi trong case 12
+    case 12:  // Phát hiện '/'
+    readChar();
+    if (currentChar == '/') {  // Nếu gặp '//', bỏ qua phần còn lại của dòng
+        while (currentChar != '\n' && currentChar != EOF) {
+            readChar();  
+        }
+        state = 0; 
+    } else {
+        state = 0;  // Xử lý token '/'
         return makeToken(SB_SLASH, lineNo, colNo - 1);
+    }
+    return getToken();
+
     case 13:
         readChar();
         if (charCodes[currentChar] == CHAR_EQ)
@@ -350,55 +360,13 @@ Token *getToken(void)
         error(ERR_INVALIDCHARCONSTANT, lineNo, colNo - 2);
         state = 0; 
         return getToken();
-    case 35:
-        ln = lineNo;
-        cn = colNo;
-        readChar();
-        if (currentChar == '*')
-        {
-            state = 37; 
-            readChar();
-        }
-        else
-        {
-            state = 41;
-        }
-        return getToken();
+    
     case 36:
         readChar();
         state = 0;
         return makeToken(SB_LSEL, lineNo, colNo - 2);
-    case 37:
-        while (currentChar != EOF)
-        {
-            if (currentChar == '*')
-            {
-                state = 38;
-                readChar();
-                break;
-            }
-            else
-            {
-                readChar();
-            }
-        }
-        if (currentChar == EOF)
-        {
-            error(ERR_ENDOFCOMMENT, ln, cn);
-            state = 0;  
-        }
-        return getToken();
-    case 38:
-        if (currentChar == ')')
-        {
-            state = 39;
-            readChar();
-        }
-        else
-        {
-            state = 37; 
-        }
-        return getToken();
+   
+
     case 39:
         state = 0; 
         return getToken();

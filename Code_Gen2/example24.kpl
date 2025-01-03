@@ -1,0 +1,8 @@
+program p; (*example14*)
+	var a: integer;
+		b: integer;
+	begin
+		a := - 2 + 3;
+		call WRITEI (a);
+		call WRITELN;
+	end.

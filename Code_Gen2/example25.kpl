@@ -1,0 +1,9 @@
+Program Example25;
+   
+Var n : Integer;
+
+Begin
+  n:= READI;
+  n := - 7+n;
+  call WRITEI(n);
+End.

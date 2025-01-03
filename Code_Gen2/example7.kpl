@@ -1,0 +1,11 @@
+Program Example2; 
+   
+Var n : Integer;
+
+Begin
+  For n := 1 To 7 Do
+    Begin
+      Call WRITELN;
+      Call WRITEI( n );
+    End;
+End. 
